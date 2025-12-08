@@ -122,6 +122,7 @@ CREATE TABLE `general_elements` (
   `ClientID` int(11) NOT NULL,
   `client_name` varchar(255) NOT NULL,
   `phone` varchar(12) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `facebook` varchar(255) DEFAULT NULL,
   `icon` varchar(3000) NOT NULL,
   `background_img1` varchar(255) DEFAULT NULL,

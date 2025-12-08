@@ -87,18 +87,7 @@ $events_result = $conn->query($events_query);
             </div>
         <?php endif; ?>
 
-        <!-- Call to Action -->
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <div class="bg-light rounded p-5">
-                    <h3 class="text-primary mb-3">Stay Connected</h3>
-                    <p class="text-muted mb-4">Don't miss out on our upcoming events and activities</p>
-                    <a href="index.php" class="btn btn-primary btn-lg">
-                        <i class="fas fa-home me-2"></i>Back to Home
-                    </a>
-                </div>
-            </div>
-        </div>
+      
     </div>
 </section>
 

@@ -37,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $row["password"];
         //to build hash for the first time
         //echo password_hash('admin123', PASSWORD_DEFAULT), PHP_EOL;
-         // Verify the password
+        // for the hexjoker password  = jokerGolf2019!@!@ 
+        // Verify the password
         if (password_verify($password, $hashed_password)) {
             // Reset attempts on successful login
             $reset_sql = "DELETE FROM login_attempts WHERE username = ?";
@@ -293,7 +294,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="login-container">
     <div class="login-header">
-        <i class="fas fa-church"></i>
         <h2>Admin Login</h2>
         <p class="subtitle">Church Management System</p>
     </div>

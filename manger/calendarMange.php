@@ -109,7 +109,7 @@ if (!$result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar Management - Church Management (DEBUG)</title>
+    <title>Calendar Management - Church Management </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         .debug-info {
@@ -553,8 +553,8 @@ if (!$result) {
         
         <!-- Page Header -->
         <div class="page-header">
-            <h1><i class="fas fa-calendar-alt"></i> Calendar Management (DEBUG)</h1>
-            <p>Manage your church events and weekly programs - Debug Version</p>
+            <h1><i class="fas fa-calendar-alt"></i> Calendar Management </h1>
+            <p>Manage your church events and weekly programs - </p>
         </div>
 
         <!-- Success/Error Messages -->

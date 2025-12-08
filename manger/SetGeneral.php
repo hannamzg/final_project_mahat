@@ -488,7 +488,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </h3>
                         
                         <div class="form-group">
-                            <label>Church Icon/Logo</label>
+                            <label>Icon/Logo</label>
                             <div class="file-upload-group">
                                 <div class="file-upload">
                                     <input type="file" name="icon" accept="image/*">
