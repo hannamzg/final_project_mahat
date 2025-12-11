@@ -19,21 +19,51 @@ while($row = $content_result->fetch_assoc()) {
 $message_sent = false;
 $error_message = '';
 
-if ($_POST) {
-    $name = htmlspecialchars($_POST['name'] ?? '');
-    $email = htmlspecialchars($_POST['email'] ?? '');
-    $phone = htmlspecialchars($_POST['phone'] ?? '');
-    $subject = htmlspecialchars($_POST['subject'] ?? '');
-    $message = htmlspecialchars($_POST['message'] ?? '');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get raw values 
+    $name    = trim($_POST['name'] ?? '');
+    $email   = trim($_POST['email'] ?? '');
+    $phone   = trim($_POST['phone'] ?? '');
+    $subject = trim($_POST['subject'] ?? '');
+    $message = trim($_POST['message'] ?? '');
     
-    if (!empty($name) && !empty($email) && !empty($message)) {
-        // Here you would typically save to database or send email
-        // For now, we'll just show a success message
-        $message_sent = true;
-    } else {
+    // Basic validation
+    if ($name === '' || $email === '' || $message === '') {
         $error_message = 'Please fill in all required fields.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error_message = 'Please enter a valid email address.';
+    } else {
+        // Save to database
+        $stmt = $conn->prepare("
+            INSERT INTO contact_messages (name, email, phone, subject, message)
+            VALUES (?, ?, ?, ?, ?)
+        ");
+        
+        if ($stmt) {
+            $stmt->bind_param(
+                "sssss",
+                $name,
+                $email,
+                $phone,
+                $subject,
+                $message
+            );
+            
+            if ($stmt->execute()) {
+                $message_sent = true;
+                // Optional: clear form values after success
+                $name = $email = $phone = $subject = $message = '';
+            } else {
+                $error_message = 'There was a problem sending your message. Please try again later.';
+            }
+            
+            $stmt->close();
+        } else {
+            $error_message = 'There was a problem with the server. Please try again later.';
+        }
     }
 }
+
 ?>
 
 <!-- Page Header -->

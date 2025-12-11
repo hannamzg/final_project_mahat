@@ -380,3 +380,14 @@ ALTER TABLE `products`
 ALTER TABLE `product_categories`
   ADD CONSTRAINT `product_categories_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE;
 COMMIT;
+
+CREATE TABLE contact_messages (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(50) DEFAULT NULL,
+    subject VARCHAR(255) DEFAULT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_read TINYINT(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -438,7 +438,7 @@ while ($row = $recent_content->fetch_assoc()) {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
                     }, 100);
-                }, index * 100);
+                }, index * 200);
             });
         });
     </script>
